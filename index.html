@@ -24,6 +24,7 @@
   --foil-hi: #F4F7F7;
   --dome: #FFFFFF;
   --hole: #26302F;
+  --print: #3E5552;
   --love: #D61F5C;
   --love-hi: #FF94B5;
   --on-love: #FFFFFF;
@@ -38,7 +39,7 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0D1716; --grid: #13201E; --surface: #15221F; --ink: #E3EEEC; --muted: #94ABA7; --line: #2A3B38;
-    --foil-lo: #5D696B; --foil-hi: #B9C3C5; --dome: #FFFFFF; --hole: #050807;
+    --foil-lo: #5D696B; --foil-hi: #B9C3C5; --dome: #FFFFFF; --hole: #050807; --print: #1A2422;
     --love: #FF4D85; --love-hi: #FFB8CD; --on-love: #22060F; --deal: #45CC90; --nope: #FF7452;
     --shadow: rgba(0, 0, 0, 0.45);
     color-scheme: dark;
@@ -46,7 +47,7 @@
 }
 :root[data-theme="dark"] {
   --bg: #0D1716; --grid: #13201E; --surface: #15221F; --ink: #E3EEEC; --muted: #94ABA7; --line: #2A3B38;
-  --foil-lo: #5D696B; --foil-hi: #B9C3C5; --dome: #FFFFFF; --hole: #050807;
+  --foil-lo: #5D696B; --foil-hi: #B9C3C5; --dome: #FFFFFF; --hole: #050807; --print: #1A2422;
   --love: #FF4D85; --love-hi: #FFB8CD; --on-love: #22060F; --deal: #45CC90; --nope: #FF7452;
   --shadow: rgba(0, 0, 0, 0.45);
   color-scheme: dark;
@@ -195,7 +196,7 @@ body[data-mood="bad"] .pct { color: var(--nope); }
 #blister .tint { fill: var(--nope); opacity: 0; transition: opacity 0.4s; }
 body.is-over #blister .tint { opacity: 0.16; }
 #blister .perf { stroke: var(--foil-lo); stroke-width: 1.5; stroke-dasharray: 2 5; }
-#blister .print { font-family: var(--mono); font-size: 11px; font-weight: 500; fill: var(--muted); letter-spacing: 0.06em; }
+#blister .print { font-family: var(--mono); font-size: 11px; font-weight: 700; fill: var(--print); letter-spacing: 0.06em; }
 #blister .well { fill: var(--hole); opacity: 0.12; }
 #blister .dome { fill: url(#domeGrad); stroke: var(--foil-lo); stroke-width: 1.5; }
 #blister .gloss { fill: none; stroke: var(--dome); stroke-width: 3; stroke-linecap: round; opacity: 0.8; }
