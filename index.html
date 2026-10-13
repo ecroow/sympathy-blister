@@ -1,0 +1,715 @@
+<!doctype html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:title" content="Блистер на симпатиите">
+<meta property="og:description" content="Колкото по-ниска е цената, толкова повече ви харесваме. Таванът е 80 000 €.">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Блистер на симпатиите</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a cleanroom spec sheet. Verdict and price controls on the left, the blister pack as the meter on the right, three business cards beneath. */
+:root {
+  --bg: #EDF2F1;
+  --grid: #DFE8E6;
+  --surface: #FFFFFF;
+  --ink: #13302D;
+  --muted: #58706C;
+  --line: #CBD8D5;
+  --foil-lo: #B6C1C3;
+  --foil-hi: #F4F7F7;
+  --dome: #FFFFFF;
+  --hole: #26302F;
+  --love: #D61F5C;
+  --love-hi: #FF94B5;
+  --on-love: #FFFFFF;
+  --deal: #13805A;
+  --nope: #C23A1E;
+  --shadow: rgba(19, 48, 45, 0.14);
+
+  --display: "Unbounded", "Arial Black", system-ui, sans-serif;
+  --body: "Onest", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0D1716; --grid: #13201E; --surface: #15221F; --ink: #E3EEEC; --muted: #94ABA7; --line: #2A3B38;
+    --foil-lo: #5D696B; --foil-hi: #B9C3C5; --dome: #FFFFFF; --hole: #050807;
+    --love: #FF4D85; --love-hi: #FFB8CD; --on-love: #22060F; --deal: #45CC90; --nope: #FF7452;
+    --shadow: rgba(0, 0, 0, 0.45);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0D1716; --grid: #13201E; --surface: #15221F; --ink: #E3EEEC; --muted: #94ABA7; --line: #2A3B38;
+  --foil-lo: #5D696B; --foil-hi: #B9C3C5; --dome: #FFFFFF; --hole: #050807;
+  --love: #FF4D85; --love-hi: #FFB8CD; --on-love: #22060F; --deal: #45CC90; --nope: #FF7452;
+  --shadow: rgba(0, 0, 0, 0.45);
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block: 24px 48px;
+  display: grid;
+  gap: 44px;
+}
+
+/* top bar */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.eyebrow {
+  margin: 0; font-family: var(--mono); font-size: 0.74rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); min-width: 0;
+}
+.lang { display: inline-flex; border: 1.5px solid var(--line); border-radius: 999px; padding: 3px; background: var(--surface); }
+.lang button {
+  font: 600 0.8rem/1 var(--body); letter-spacing: 0.06em; color: var(--muted);
+  background: transparent; border: 0; border-radius: 999px; padding: 7px 12px; cursor: pointer;
+}
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.lang button:focus-visible, .btn:focus-visible { outline: 2px solid var(--love); outline-offset: 2px; }
+
+/* main sheet */
+.sheet {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: 48px;
+  align-items: center;
+}
+.verdict { display: grid; gap: 22px; min-width: 0; }
+h1 {
+  margin: 0; font-family: var(--display); font-weight: 700;
+  font-size: clamp(1.9rem, 4.2vw, 2.9rem); line-height: 1.05; letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.lede { margin: 0; color: var(--muted); font-size: 1.05rem; max-width: 46ch; }
+
+.score { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
+.pct {
+  font-family: var(--display); font-weight: 700; font-size: clamp(3.8rem, 10vw, 6.4rem);
+  line-height: 0.9; letter-spacing: -0.04em; font-variant-numeric: tabular-nums;
+  color: var(--ink); transition: color 0.3s;
+}
+.pct-label { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+body[data-mood="good"] .pct { color: var(--love); }
+body[data-mood="bad"] .pct { color: var(--nope); }
+.headline {
+  margin: -6px 0 0; font-family: var(--display); font-weight: 500;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem); line-height: 1.2; text-wrap: balance;
+}
+
+/* price control */
+.price { display: grid; gap: 10px; }
+.price label { font-family: var(--mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.price-row {
+  display: flex; align-items: center; gap: 8px; width: min(100%, 300px);
+  background: var(--surface); border: 1.5px solid var(--line); border-radius: 14px; padding: 6px 16px;
+}
+.price-row:focus-within { border-color: var(--ink); }
+#price-input {
+  flex: 1; min-width: 0; border: 0; background: transparent; color: var(--ink); outline: none;
+  font: 700 2rem/1.2 var(--mono); font-variant-numeric: tabular-nums; padding: 0;
+}
+.cur { font: 700 1.6rem/1 var(--mono); color: var(--muted); }
+
+#price-range {
+  -webkit-appearance: none; appearance: none; width: 100%; height: 36px; background: transparent; cursor: pointer; margin: 4px 0 0;
+}
+#price-range::-webkit-slider-runnable-track {
+  height: 10px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--love), var(--muted) 55%, var(--nope));
+}
+#price-range::-moz-range-track {
+  height: 10px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--love), var(--muted) 55%, var(--nope));
+}
+#price-range::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; width: 40px; height: 22px; margin-top: -6px;
+  border-radius: 11px; border: 2px solid var(--ink);
+  background: linear-gradient(90deg, var(--love) 50%, var(--surface) 50%);
+  box-shadow: 0 3px 8px var(--shadow);
+}
+#price-range::-moz-range-thumb {
+  width: 36px; height: 18px; border-radius: 11px; border: 2px solid var(--ink);
+  background: linear-gradient(90deg, var(--love) 50%, var(--surface) 50%);
+  box-shadow: 0 3px 8px var(--shadow);
+}
+#price-range:focus-visible { outline: 2px solid var(--love); outline-offset: 4px; border-radius: 8px; }
+.ticks {
+  display: flex; justify-content: space-between; margin-top: -4px;
+  font-family: var(--mono); font-size: 0.72rem; color: var(--muted); font-variant-numeric: tabular-nums;
+}
+.ticks span:last-child { color: var(--nope); font-weight: 700; }
+.over {
+  margin: 0; font-weight: 600; color: var(--nope);
+  border-left: 3px solid var(--nope); padding-left: 10px;
+}
+
+.actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; position: relative; }
+.btn {
+  font: 600 0.95rem/1 var(--body); border-radius: 999px; padding: 13px 18px; cursor: pointer;
+  border: 1.5px solid transparent; font-variant-numeric: tabular-nums;
+}
+.btn.primary { background: var(--love); color: var(--on-love); }
+.btn.primary:hover { filter: brightness(1.06); }
+.btn.primary:active { transform: translateY(1px); }
+.btn.ghost { background: transparent; color: var(--muted); border-color: var(--line); border-style: dashed; }
+.btn.ghost.shake { animation: shake 0.42s; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px) rotate(-2deg); }
+  40% { transform: translateX(6px) rotate(2deg); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(3px); }
+}
+.toast {
+  font-family: var(--mono); font-size: 0.8rem; color: var(--nope);
+  opacity: 0; transition: opacity 0.25s; min-height: 1em;
+}
+.toast.show { opacity: 1; }
+
+/* blister meter */
+.meter { display: grid; gap: 14px; min-width: 0; }
+.blister-box { position: relative; }
+#blister { display: block; width: 100%; height: auto; filter: drop-shadow(0 14px 22px var(--shadow)); }
+#blister .card-face { fill: url(#foil); stroke: var(--foil-lo); stroke-width: 1.5; }
+#blister .tint { fill: var(--nope); opacity: 0; transition: opacity 0.4s; }
+body.is-over #blister .tint { opacity: 0.16; }
+#blister .perf { stroke: var(--foil-lo); stroke-width: 1.5; stroke-dasharray: 2 5; }
+#blister .print { font-family: var(--mono); font-size: 11px; font-weight: 500; fill: var(--muted); letter-spacing: 0.06em; }
+#blister .well { fill: var(--hole); opacity: 0.12; }
+#blister .dome { fill: url(#domeGrad); stroke: var(--foil-lo); stroke-width: 1.5; }
+#blister .gloss { fill: none; stroke: var(--dome); stroke-width: 3; stroke-linecap: round; opacity: 0.8; }
+#blister .heart { fill: url(#heartGrad); stroke: var(--love); stroke-width: 1; }
+#blister .heart-shine { fill: var(--dome); opacity: 0.55; }
+#blister .tablet, #blister .broken {
+  transform-box: fill-box; transform-origin: center;
+  transition: transform 0.45s cubic-bezier(.3, 1.4, .5, 1), opacity 0.35s;
+}
+#blister .broken { opacity: 0; transform: scale(0.6); }
+#blister .hole { fill: var(--hole); opacity: 0.88; }
+#blister .flap { fill: var(--foil-hi); stroke: var(--foil-lo); stroke-width: 1; }
+#blister .crease { stroke: var(--foil-lo); stroke-width: 1.2; fill: none; stroke-linecap: round; }
+#blister .cav.empty .tablet { opacity: 0; transform: translateY(-26px) scale(0.5) rotate(-25deg); }
+#blister .cav.empty .broken { opacity: 1; transform: scale(1); transition-delay: 0.12s; }
+#blister .cav.empty .dome { fill-opacity: 0.6; }
+
+.stamp {
+  position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  font-family: var(--display); font-weight: 700; font-size: clamp(1.3rem, 4.6vw, 2.3rem);
+  letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap;
+  padding: 0.22em 0.6em; border: 4px solid currentColor; border-radius: 10px;
+  background: color-mix(in srgb, var(--surface) 72%, transparent);
+  pointer-events: none;
+  animation: slam 0.5s cubic-bezier(.2, 1.3, .4, 1) both;
+}
+.stamp.deal { color: var(--deal); }
+.stamp.nope { color: var(--nope); }
+@keyframes slam {
+  0% { opacity: 0; transform: translate(-50%, -50%) rotate(-12deg) scale(1.9); }
+  70% { opacity: 1; transform: translate(-50%, -50%) rotate(-12deg) scale(0.95); }
+  100% { opacity: 1; transform: translate(-50%, -50%) rotate(-12deg) scale(1); }
+}
+.caption {
+  margin: 0; text-align: center; font-family: var(--mono); font-size: 0.8rem; color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* people */
+.people { display: grid; gap: 20px; }
+h2 {
+  margin: 0; font-family: var(--display); font-weight: 500; font-size: 1.25rem; letter-spacing: -0.01em;
+}
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.card {
+  position: relative; min-width: 0;
+  background: var(--surface); border-radius: 6px; padding: 20px 22px;
+  box-shadow: 0 1px 0 var(--line), 0 14px 26px var(--shadow);
+  display: grid; gap: 14px; align-content: start;
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.3s, filter 0.4s, opacity 0.4s;
+}
+.card:hover { transform: rotate(0deg) translateY(-2px); }
+body.is-over .card { filter: grayscale(1); opacity: 0.82; }
+.card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.card-head > div { min-width: 0; }
+.org { margin: 0 0 4px; font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.card h3 { margin: 0; font-size: 1.12rem; font-weight: 600; line-height: 1.25; }
+.role { margin: 2px 0 0; font-size: 0.88rem; color: var(--muted); line-height: 1.35; }
+.chip {
+  flex: none; font-size: 0.72rem; font-weight: 600; line-height: 1.2; text-align: center;
+  padding: 5px 10px; border-radius: 999px; max-width: 46%;
+}
+.chip[data-mood="good"] { color: var(--love); background: color-mix(in srgb, var(--love) 13%, var(--surface)); }
+.chip[data-mood="meh"] { color: var(--ink); background: color-mix(in srgb, var(--muted) 16%, var(--surface)); }
+.chip[data-mood="bad"] { color: var(--nope); background: color-mix(in srgb, var(--nope) 13%, var(--surface)); }
+.reaction { margin: 0; border-top: 1px dashed var(--line); padding-top: 12px; font-size: 1rem; }
+.sticker {
+  position: absolute; top: -14px; right: -10px; width: 38px; height: 38px;
+  transform: rotate(14deg) scale(0); transition: transform 0.4s cubic-bezier(.3, 1.5, .5, 1);
+}
+.sticker path { fill: var(--love); stroke: var(--surface); stroke-width: 2.5; }
+body.is-love .sticker { transform: rotate(14deg) scale(1); }
+
+footer {
+  border-top: 1px solid var(--line); padding-top: 16px;
+  font-size: 0.85rem; color: var(--muted); max-width: 72ch;
+}
+
+@media (max-width: 860px) {
+  .sheet { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .cards { grid-template-columns: minmax(0, 1fr); max-width: 520px; }
+}
+@media (max-width: 420px) {
+  .wrap { padding-inline: 16px; }
+  #price-input { font-size: 1.7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <p class="eyebrow" data-i="eyebrow">Евелин 29 · Преговори за блистер машина и картонажна машина</p>
+    <div class="lang" role="group" aria-label="Език / Language">
+      <button type="button" id="lang-bg" data-lang="bg" aria-pressed="true">БГ</button>
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main class="sheet">
+    <section class="verdict">
+      <h1 data-i="title">Блистер на симпатиите</h1>
+      <p class="lede" data-i="lede">Колкото по-ниска е цената, толкова повече ви харесваме. Всяка таблетка в блистера е 8 000 € отстъпка. Таванът е 80 000 €.</p>
+
+      <div>
+        <div class="score">
+          <span class="pct" id="pct">20%</span>
+          <span class="pct-label" data-i="sympathy">симпатия</span>
+        </div>
+      </div>
+      <p class="headline" id="headline" aria-live="polite">Не ви харесваме особено.</p>
+
+      <div class="price">
+        <label for="price-input" data-i="offer">Вашата оферта, без ДДС</label>
+        <div class="price-row">
+          <input id="price-input" type="text" inputmode="numeric" autocomplete="off" value="64 000">
+          <span class="cur" aria-hidden="true">€</span>
+        </div>
+        <input id="price-range" type="range" min="0" max="80000" step="500" value="64000" aria-labelledby="offer-range-label">
+        <span id="offer-range-label" hidden data-i="offer">Вашата оферта, без ДДС</span>
+        <div class="ticks" id="ticks" aria-hidden="true"></div>
+        <p class="over" id="over" hidden></p>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn primary" id="btn-down" data-i="down">Отстъпка −2 500 €</button>
+        <button type="button" class="btn ghost" id="btn-up" data-i="up">Поскъпване +2 500 €</button>
+        <span class="toast" id="toast" role="status"></span>
+      </div>
+    </section>
+
+    <section class="meter">
+      <div class="blister-box">
+        <svg id="blister" viewBox="0 0 520 260" role="img" aria-label="Блистер"></svg>
+        <div class="stamp" id="stamp" hidden></div>
+      </div>
+      <p class="caption" data-i="caption">1 таблетка = 10% симпатия = 8 000 € отстъпка</p>
+    </section>
+  </main>
+
+  <section class="people">
+    <h2 data-i="peopleTitle">Какво ви очаква</h2>
+    <div class="cards" id="cards"></div>
+  </section>
+
+  <footer data-i="footer">Методология: всяко евро над нулата отнема 0,00125% симпатия. Страницата е шега. Симпатията е истинска.</footer>
+</div>
+
+<script>
+(() => {
+  const CEIL = 80000;
+  const STEP = 2500;
+
+  const T = {
+    bg: {
+      eyebrow: "Евелин 29 · Преговори за блистер машина и картонажна машина",
+      title: "Блистер на симпатиите",
+      lede: "Колкото по-ниска е цената, толкова повече ви харесваме. Всяка таблетка в блистера е 8 000 € отстъпка. Таванът е 80 000 €.",
+      sympathy: "симпатия",
+      offer: "Вашата оферта, без ДДС",
+      down: "Отстъпка −2 500 €",
+      up: "Поскъпване +2 500 €",
+      refusals: ["Този бутон е декоративен.", "Не, благодарим.", "Опитайте другия бутон.", "Видяхме това."],
+      caption: "1 таблетка = 10% симпатия = 8 000 € отстъпка",
+      peopleTitle: "Какво ви очаква",
+      footer: "Методология: всяко евро над нулата отнема 0,00125% симпатия. Страницата е шега. Симпатията е истинска.",
+      over: "Над тавана от 80 000 €. Симпатията вече е под нулата.",
+      foilTop: "СИМПАТИЯ® · 10 таблетки · Евелин 29",
+      foilBottom: "ПАРТИДА EV29-2610 · ГОДНО ДО: подписване на договора",
+      blisterLabel: n => `Блистер: ${n} от 10 таблетки`,
+      deal: "Подписваме",
+      nope: "Отказ",
+      zero: "Женим се.",
+      tiers: ["Безусловна любов", "Приятели завинаги", "Харесваме ви", "Нищо лично", "Хладно учтиви", "На ръба", "Над тавана"],
+      verdicts: ["Обичаме ви.", "Много ви харесваме.", "Харесваме ви.", "Ще помислим.", "Не ви харесваме особено.", "Не ви харесваме.", "Кои бяхте вие?"]
+    },
+    en: {
+      eyebrow: "Evelin 29 · Negotiating a blister machine and a cartoner",
+      title: "The Sympathy Blister",
+      lede: "The lower your price, the more we like you. Each tablet in the blister is worth €8,000 off. The ceiling is €80,000.",
+      sympathy: "sympathy",
+      offer: "Your offer, excl. VAT",
+      down: "Discount −€2,500",
+      up: "Raise +€2,500",
+      refusals: ["This button is decorative.", "No, thank you.", "Try the other button.", "We saw that."],
+      caption: "1 tablet = 10% sympathy = €8,000 off",
+      peopleTitle: "What awaits you",
+      footer: "Methodology: every euro above zero costs 0.00125% sympathy. This page is a joke. The sympathy is real.",
+      over: "Above the €80,000 ceiling. Sympathy is now below zero.",
+      foilTop: "SYMPATHY® · 10 tablets · Evelin 29",
+      foilBottom: "LOT EV29-2610 · EXP: contract signature",
+      blisterLabel: n => `Blister: ${n} of 10 tablets`,
+      deal: "Deal",
+      nope: "No deal",
+      zero: "Let's get married.",
+      tiers: ["Unconditional love", "Friends for life", "We like you", "Nothing personal", "Coldly polite", "On thin ice", "Over the ceiling"],
+      verdicts: ["We love you.", "We really like you.", "We like you.", "We'll think about it.", "We don't particularly like you.", "We don't like you.", "Sorry, who are you?"]
+    }
+  };
+
+  const PEOPLE = [
+    {
+      tilt: "-1.4deg",
+      org: "Romaco · Noack",
+      name: { bg: "Маркус Фрай", en: "Markus Frey" },
+      role: { bg: "Продуктов мениджър продажби, Noack", en: "Product Sales Manager Noack" },
+      lines: {
+        bg: [
+          "Каним го за кум. Сватбата започва в 12:00 точно, по немски.",
+          "Получава домашна ракия и собствена закачалка в шлюза.",
+          "Снимката му отива на стената до ДДП сертификата.",
+          "Отговаряме на имейлите му. В работно време.",
+          "Кафето му е без захар. И без кафе.",
+          "Почваме да запечатваме блистерите на ръка. Напук.",
+          "Блокиран в WhatsApp, LinkedIn и в сърцата ни."
+        ],
+        en: [
+          "Invited to be our best man. Ceremony at 12:00 sharp, German time.",
+          "Gets homemade rakia and his own hook in the gowning room.",
+          "His photo goes on the wall next to our GMP certificate.",
+          "We answer his emails. During business hours.",
+          "His coffee comes without sugar. And without coffee.",
+          "We start sealing blisters by hand. Out of spite.",
+          "Blocked on WhatsApp, LinkedIn and in our hearts."
+        ]
+      }
+    },
+    {
+      tilt: "0.9deg",
+      org: "Romaco Group",
+      name: { bg: "Алесандро Мелони", en: "Alessandro Meloni" },
+      role: { bg: "Вицепрезидент продажби и сервиз", en: "Vice President Sales and Service" },
+      lines: {
+        bg: [
+          "Почетен гражданин на Евелин 29, със запазено паркомясто.",
+          "Каним го на шопска салата. С двойно сирене.",
+          "Пием еспресо и си говорим за сервизни интервали.",
+          "Кимаме учтиво, когато каже „very competitive price“.",
+          "Напомняме му, че еспресото в София е 1,50 €.",
+          "Пращаме го да преговаря със счетоводителката ни.",
+          "Пица с ананас при всяко посещение."
+        ],
+        en: [
+          "Honorary citizen of Evelin 29, with a reserved parking spot.",
+          "Invited for shopska salad. Double cheese.",
+          "Espresso together and a chat about service intervals.",
+          "We nod politely when he says “very competitive price”.",
+          "We remind him an espresso in Sofia costs €1.50.",
+          "We send him to negotiate with our accountant.",
+          "Pineapple pizza at every visit."
+        ]
+      }
+    },
+    {
+      tilt: "-0.6deg",
+      org: "Danaex",
+      name: { bg: "Даниела Ташева", en: "Daniela Tasheva" },
+      role: { bg: "Преработка и пакетиране", en: "Processing & Packaging" },
+      lines: {
+        bg: [
+          "Мартеница от нас всеки 1 март до 2050 г.",
+          "Любимата ни колежка от друга фирма.",
+          "Звъним ѝ за съвет, дори когато не купуваме.",
+          "Поздравяваме я за имения ден. С есемес.",
+          "Питаме я дали не е сложила една нула в повече.",
+          "Обаждаме ѝ се от скрит номер.",
+          "Получава от нас подарък блистер. Празен."
+        ],
+        en: [
+          "A martenitsa from us every 1 March until 2050.",
+          "Our favourite colleague at another company.",
+          "We call her for advice even when we're not buying.",
+          "Name-day wishes. By text message.",
+          "We ask whether there's an extra zero in there.",
+          "We call her from a hidden number.",
+          "We send her a gift blister. Empty."
+        ]
+      }
+    }
+  ];
+
+  const state = { price: 64000, lang: "bg" };
+  try {
+    const saved = localStorage.getItem("sympathy-lang");
+    if (saved === "bg" || saved === "en") state.lang = saved;
+    else state.lang = (navigator.language || "").toLowerCase().startsWith("bg") ? "bg" : "en";
+  } catch (e) {
+    state.lang = (navigator.language || "").toLowerCase().startsWith("bg") ? "bg" : "en";
+  }
+
+  const $ = id => document.getElementById(id);
+  const input = $("price-input"), range = $("price-range");
+  const NS = "http://www.w3.org/2000/svg";
+
+  const tierOf = p => p <= 10000 ? 0 : p <= 25000 ? 1 : p <= 40000 ? 2 : p <= 55000 ? 3 : p <= 70000 ? 4 : p <= CEIL ? 5 : 6;
+  const moodOf = t => t <= 2 ? "good" : t === 3 ? "meh" : "bad";
+  const tabletsOf = p => p > CEIL ? 0 : Math.round(10 * (1 - p / CEIL));
+  const locale = () => state.lang === "bg" ? "bg-BG" : "en-IE";
+  const fmtNum = n => new Intl.NumberFormat(locale(), { maximumFractionDigits: 0 }).format(n);
+
+  /* ---------- blister ---------- */
+  const svg = $("blister");
+  const el = (tag, attrs, parent) => {
+    const node = document.createElementNS(NS, tag);
+    for (const k in attrs) node.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(node);
+    return node;
+  };
+  const HEART = "M0,16 C-4,12 -22,2 -22,-8 C-22,-17 -14,-22 -8,-22 C-4,-22 -1,-19 0,-16 C1,-19 4,-22 8,-22 C14,-22 22,-17 22,-8 C22,2 4,12 0,16 Z";
+
+  function seeded(seed) {
+    let s = seed * 9301 + 49297;
+    return () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
+  }
+
+  const cavities = [];
+  let foilTop, foilBottom;
+
+  function buildBlister() {
+    const defs = el("defs", {}, svg);
+    const foil = el("linearGradient", { id: "foil", x1: "0", y1: "0", x2: "1", y2: "1" }, defs);
+    [["0", "--foil-hi"], ["0.35", "--foil-lo"], ["0.55", "--foil-hi"], ["0.8", "--foil-lo"], ["1", "--foil-hi"]]
+      .forEach(([o, c]) => el("stop", { offset: o, style: `stop-color: var(${c})` }, foil));
+    const dome = el("radialGradient", { id: "domeGrad", cx: "0.38", cy: "0.32", r: "0.75" }, defs);
+    [["0", "0.95"], ["0.55", "0.28"], ["1", "0.55"]]
+      .forEach(([o, a]) => el("stop", { offset: o, style: `stop-color: var(--dome); stop-opacity: ${a}` }, dome));
+    const heart = el("radialGradient", { id: "heartGrad", cx: "0.35", cy: "0.3", r: "0.8" }, defs);
+    el("stop", { offset: "0", style: "stop-color: var(--love-hi)" }, heart);
+    el("stop", { offset: "0.65", style: "stop-color: var(--love)" }, heart);
+
+    el("rect", { class: "card-face", x: 6, y: 6, width: 508, height: 248, rx: 20 }, svg);
+    el("rect", { class: "tint", x: 6, y: 6, width: 508, height: 248, rx: 20 }, svg);
+
+    // perforations between the columns and between the two rows
+    el("line", { class: "perf", x1: 24, y1: 140, x2: 496, y2: 140 }, svg);
+    for (let i = 1; i < 5; i++) {
+      const x = 25 + i * 94;
+      el("line", { class: "perf", x1: x, y1: 52, x2: x, y2: 228 }, svg);
+    }
+
+    foilTop = el("text", { class: "print", x: 260, y: 36, "text-anchor": "middle" }, svg);
+    foilBottom = el("text", { class: "print", x: 260, y: 240, "text-anchor": "middle" }, svg);
+
+    for (let r = 0; r < 2; r++) {
+      for (let c = 0; c < 5; c++) {
+        const i = r * 5 + c;
+        const cx = 72 + c * 94, cy = 98 + r * 84;
+        const g = el("g", { class: "cav" }, svg);
+        el("ellipse", { class: "well", cx, cy: cy + 4, rx: 40, ry: 35 }, g);
+        el("ellipse", { class: "dome", cx, cy, rx: 38, ry: 33 }, g);
+
+        // torn foil, shown once the tablet is gone
+        const broken = el("g", { class: "broken" }, g);
+        const rnd = seeded(i + 3);
+        const pts = [];
+        for (let k = 0; k < 16; k++) {
+          const a = (k / 16) * Math.PI * 2;
+          const f = 0.7 + rnd() * 0.35;
+          pts.push(`${(cx + Math.cos(a) * 24 * f).toFixed(1)},${(cy + 2 + Math.sin(a) * 20 * f).toFixed(1)}`);
+        }
+        el("polygon", { class: "hole", points: pts.join(" ") }, broken);
+        const fa = rnd() * Math.PI * 2;
+        const fx = cx + Math.cos(fa) * 16, fy = cy + 2 + Math.sin(fa) * 13;
+        el("polygon", { class: "flap", points: `${fx.toFixed(1)},${fy.toFixed(1)} ${(fx + 14).toFixed(1)},${(fy - 6).toFixed(1)} ${(fx + 6).toFixed(1)},${(fy + 9).toFixed(1)}` }, broken);
+        el("path", { class: "crease", d: `M${cx - 30},${cy - 12} q14,8 22,2 M${cx + 10},${cy + 20} q10,-4 20,-14` }, broken);
+
+        const tablet = el("g", { class: "tablet" }, g);
+        el("path", { class: "heart", d: HEART, transform: `translate(${cx} ${cy + 3}) scale(1.08)` }, tablet);
+        el("ellipse", { class: "heart-shine", cx: cx - 10, cy: cy - 10, rx: 6, ry: 3.5, transform: `rotate(-30 ${cx - 10} ${cy - 10})` }, tablet);
+
+        el("path", { class: "gloss", d: `M${cx - 26},${cy - 8} a28,24 0 0 1 20,-20` }, g);
+        cavities.push(g);
+      }
+    }
+  }
+
+  /* ---------- people ---------- */
+  const cardEls = [];
+  function buildCards() {
+    const wrap = $("cards");
+    PEOPLE.forEach(p => {
+      const card = document.createElement("article");
+      card.className = "card";
+      card.style.setProperty("--tilt", p.tilt);
+      card.innerHTML = `
+        <svg class="sticker" viewBox="-26 -26 52 46" aria-hidden="true"><path d="${HEART}"/></svg>
+        <div class="card-head">
+          <div>
+            <p class="org"></p>
+            <h3></h3>
+            <p class="role"></p>
+          </div>
+          <span class="chip"></span>
+        </div>
+        <p class="reaction"></p>`;
+      card.querySelector(".org").textContent = p.org;
+      wrap.appendChild(card);
+      cardEls.push(card);
+    });
+  }
+
+  /* ---------- render ---------- */
+  let lastStamp = "";
+  function render() {
+    const t = T[state.lang];
+    const p = state.price;
+    const tier = tierOf(p);
+    const mood = moodOf(tier);
+    const pct = Math.round(100 * (1 - p / CEIL));
+    const n = tabletsOf(p);
+
+    document.documentElement.lang = state.lang;
+    document.querySelectorAll("[data-i]").forEach(node => { node.textContent = t[node.dataset.i]; });
+    $("lang-bg").setAttribute("aria-pressed", String(state.lang === "bg"));
+    $("lang-en").setAttribute("aria-pressed", String(state.lang === "en"));
+
+    $("pct").textContent = (pct < 0 ? "−" + Math.abs(pct) : pct) + "%";
+    $("headline").textContent = p === 0 ? t.zero : t.verdicts[tier];
+    document.body.dataset.mood = mood;
+    document.body.classList.toggle("is-over", tier === 6);
+    document.body.classList.toggle("is-love", tier === 0);
+
+    if (document.activeElement !== input) input.value = fmtNum(p);
+    range.value = String(Math.min(p, CEIL));
+
+    const over = $("over");
+    over.hidden = tier !== 6;
+    over.textContent = t.over;
+
+    $("ticks").innerHTML = [0, 20000, 40000, 60000, 80000].map(v => `<span>${fmtNum(v)}</span>`).join("");
+
+    foilTop.textContent = t.foilTop;
+    foilBottom.textContent = t.foilBottom;
+    svg.setAttribute("aria-label", t.blisterLabel(n));
+    cavities.forEach((g, i) => g.classList.toggle("empty", i >= n));
+
+    const stamp = $("stamp");
+    const kind = tier <= 1 ? "deal" : tier === 6 ? "nope" : "";
+    if (kind) {
+      stamp.className = "stamp " + kind;
+      stamp.textContent = t[kind];
+      if (kind !== lastStamp) { stamp.hidden = true; void stamp.offsetWidth; }
+      stamp.hidden = false;
+    } else {
+      stamp.hidden = true;
+    }
+    lastStamp = kind;
+
+    cardEls.forEach((card, i) => {
+      const person = PEOPLE[i];
+      card.querySelector("h3").textContent = person.name[state.lang];
+      card.querySelector(".role").textContent = person.role[state.lang];
+      const chip = card.querySelector(".chip");
+      chip.textContent = t.tiers[tier];
+      chip.dataset.mood = mood;
+      card.querySelector(".reaction").textContent = person.lines[state.lang][tier];
+    });
+  }
+
+  /* ---------- controls ---------- */
+  function setPrice(p) {
+    state.price = Math.max(0, Math.min(9999999, Math.round(p)));
+    render();
+  }
+
+  range.addEventListener("input", () => {
+    setPrice(Number(range.value));
+    input.value = fmtNum(state.price);
+  });
+  input.addEventListener("input", () => {
+    const digits = input.value.replace(/\D/g, "").slice(0, 7);
+    setPrice(digits ? Number(digits) : 0);
+  });
+  input.addEventListener("blur", () => { input.value = fmtNum(state.price); });
+  input.addEventListener("keydown", e => { if (e.key === "Enter") input.blur(); });
+
+  $("btn-down").addEventListener("click", () => {
+    setPrice(state.price - STEP);
+    input.value = fmtNum(state.price);
+  });
+
+  let refusal = 0, toastTimer;
+  $("btn-up").addEventListener("click", () => {
+    const btn = $("btn-up"), toast = $("toast");
+    btn.classList.remove("shake"); void btn.offsetWidth; btn.classList.add("shake");
+    const list = T[state.lang].refusals;
+    toast.textContent = list[refusal++ % list.length];
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("show"), 2200);
+  });
+
+  document.querySelectorAll(".lang button").forEach(b => b.addEventListener("click", () => {
+    state.lang = b.dataset.lang;
+    try { localStorage.setItem("sympathy-lang", state.lang); } catch (e) {}
+    render();
+  }));
+
+  function start(data) {
+    if (data && typeof data.price === "number") state.price = data.price;
+    if (data && (data.lang === "bg" || data.lang === "en")) state.lang = data.lang;
+    if (!cavities.length) { buildBlister(); buildCards(); }
+    render();
+  }
+
+  const hot = window.claude?.hot;
+  hot?.snapshot?.(() => ({ price: state.price, lang: state.lang }));
+  hot?.ready ? hot.ready(start) : start(hot?.data ?? {});
+})();
+</script>
+</body>
+</html>
